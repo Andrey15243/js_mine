@@ -1,0 +1,257 @@
+/* Общий стиль */
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0d1b2a; /* Тёмно-синий фон */
+  color: #e0e0e0; /* Светлый текст */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  overflow: hidden;
+  flex-direction: column;
+  transition: background-color 0.3s, color 0.3s; /* Плавные переходы */
+}
+
+/* Стили для светлой и тёмной темы */
+body.light-theme {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+body.dark-theme {
+  background-color: #0d1b2a;
+  color: #e0e0e0;
+}
+
+/* Контейнер для кнопок */
+.container {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 10px 20px;
+  background-color: #1f2a3d;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+/* Светлая тема для контейнера */
+.container.light-theme {
+  background-color: #ffffff;
+}
+
+/* Кнопки вкладок */
+.tab-button {
+  background-color: #2a3b58;
+  color: #e0e0e0;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 24.7%;
+  min-width: 90px;
+}
+
+.tab-button:hover {
+  background-color: #35445d;
+}
+
+.tab-button:active {
+  transform: scale(0.98);
+}
+
+.tab-button.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Содержимое вкладки */
+.tab-content {
+  padding: 20px;
+  color: #e0e0e0;
+  font-size: 1rem;
+  background-color: #1f2a3d;
+  border-radius: 8px;
+  margin-bottom: 100px;
+}
+
+.tab-content.light-theme {
+  background-color: #f9f9f9;
+}
+
+/* Круговой прогресс */
+.circle-progress {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.circle-progress svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.circle-background {
+  fill: none;
+  stroke: #ddd;
+  stroke-width: 10;
+}
+
+.circle-progress-bar {
+  fill: none;
+  stroke: #4caf50;
+  stroke-width: 10;
+  stroke-dasharray: 440;
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 1s linear;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+/* Кнопка майнинга */
+.mining-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #2a3b58;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.mining-button:hover {
+  background-color: #35445d;
+}
+
+.mining-button.active {
+  background-color: #4CAF50;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+  .tab-button {
+    font-size: 0.9rem;
+    padding: 10px;
+    width: 30%;
+    min-width: 80px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .tab-content {
+    margin-bottom: 60px;
+  }
+}
+
+/* Счётчик */
+.score-display {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Контейнер для майнинга */
+.mining-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #1f2a3d;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  width: 300px;
+}
+
+.mining-container.light-theme {
+  background-color: #f9f9f9;
+}
+
+/* Анимация для доступной награды */
+.reward-available {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: #4caf50;
+  }
+  50% {
+    transform: scale(1.1);
+    background-color: #66bb6a;
+  }
+  100% {
+    transform: scale(1);
+    background-color: #4caf50;
+  }
+}
+
+/* Переключатель темы - Тумблер */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle label {
+  margin-right: 10px;
+  color: #e0e0e0; /* Белый текст */
+}
+
+.theme-toggle input {
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #ccc; /* Цвет фона тумблера */
+  border-radius: 50px;
+  position: relative;
+  transition: background-color 0.3s; /* Плавная смена фона */
+}
+
+.theme-toggle input:checked {
+  background-color: #4caf50; /* Цвет фона, когда тумблер включён */
+}
+
+.theme-toggle input::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff; /* Цвет ползунка */
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out; /* Плавное движение ползунка */
+}
+
+.theme-toggle input:checked::before {
+  transform: translateX(20px); /* Сдвигает ползунок при включении */
+}

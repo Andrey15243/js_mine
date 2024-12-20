@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PinCoin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+  <!-- Контейнер с заголовком и кнопками вкладок -->
+  <div class="container">
+    
+    <!-- Кнопки вкладок -->
+    <div class="button-container">
+      <button id="mainTab" class="tab-button active">Главная</button>
+      <button id="clickerTab" class="tab-button">Кликер</button>
+      <button id="tasksTab" class="tab-button">Задания</button>
+      <button id="referralsTab" class="tab-button">Приглашённые</button>
+    </div>
+  </div>
+
+  <!-- Переключатель темы -->
+  <div id="themeToggle" class="theme-toggle">
+    <label for="themeSwitch">Dark</label>
+    <input type="checkbox" id="themeSwitch" checked>
+  </div>
+
+  <!-- Содержимое вкладки (Главная) -->
+  <div id="content" class="tab-content">
+    <div class="mining-container">
+      <div class="score-display" id="scoreDisplay">Счёт: 0</div>
+      
+      <!-- Прогресс-бар -->
+      <div class="circle-progress" id="circleProgress">
+        <svg class="circle" width="150" height="150">
+          <circle class="circle-background" cx="75" cy="75" r="70"></circle>
+          <circle class="circle-progress-bar" cx="75" cy="75" r="70"></circle>
+        </svg>
+        <div class="percentage" id="percentage">0%</div>
+      </div>
+
+      <!-- Кнопка Майнинг -->
+      <button id="startMiningButton" class="mining-button">Запустить Майнинг</button>
+      <p id="miningStatus">Майнинг не запущен</p>
+      <p id="timeLeft">Осталось времени: 0 секунд</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
